@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ФКН · ФерсКомНадзор · Кибербезопасность ФЧ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 20% 30%, #1a0101, #000000);
+            font-family: 'Courier New', 'Fira Code', 'VT323', monospace;
+            color: #e0dcdc;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #0a0101ee;
+            border: 4px solid #b00020;
+            border-radius: 32px;
+            box-shadow: 0 0 45px #ff000066, inset 0 0 20px #ff000033;
+            padding: 1.8rem 2rem;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px dashed #a22;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .badge {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .cyber-emblem {
+            font-size: 3rem;
+            filter: drop-shadow(0 0 5px #ff4444);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: 6px;
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #ff5e5e, #8b0000);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 8px #990000;
+        }
+
+        .sub {
+            font-size: 1rem;
+            color: #ffaaaa;
+            background: #2a0101;
+            display: inline-block;
+            padding: 8px 28px;
+            border-radius: 60px;
+            margin-top: 12px;
+            font-weight: bold;
+            border: 1px solid #c44;
+        }
+
+        .flex-main {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .left-content {
+            flex: 2;
+            min-width: 270px;
+        }
+
+        .right-character {
+            flex: 1.2;
+            min-width: 240px;
+            background: #0f0000dd;
+            border-radius: 48px;
+            padding: 1.3rem 0.8rem;
+            text-align: center;
+            border: 2px solid #b00;
+            backdrop-filter: blur(4px);
+            transition: 0.2s;
+            box-shadow: 0 0 12px #c44;
+        }
+
+        .right-character:hover {
+            transform: scale(1.01);
+            border-color: #ff5555;
+        }
+
+        .character-avatar {
+            font-size: 7rem;
+            line-height: 1;
+            margin: 0;
+            filter: drop-shadow(0 0 10px #ff3333);
+            animation: gentleFloat 2.5s infinite ease-in-out;
+        }
+
+        @keyframes gentleFloat {
+            0% { transform: translateY(0px);}
+            50% { transform: translateY(-8px);}
+            100% { transform: translateY(0px);}
+        }
+
+        .character-title {
+            background: #6a0000;
+            padding: 8px;
+            margin: 12px 0 8px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-radius: 60px;
+        }
+
+        .character-quote {
+            font-style: italic;
+            background: #240101;
+            padding: 10px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #ffaaaa;
+        }
+
+        .warning-panel {
+            background: #250000;
+            border-left: 12px solid #ff0000;
+            padding: 1rem;
+            margin: 1.2rem 0;
+            box-shadow: 0 4px 14px black;
+            font-weight: bold;
+        }
+
+        .grid-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: #130000;
+            border: 1px solid #a33;
+            border-radius: 24px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ff6a6a;
+        }
+
+        button {
+            background: #9e0000;
+            border: none;
+            padding: 10px 24px;
+            font-family: monospace;
+            font-weight: bold;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin: 5px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 0 #4f0000;
+        }
+
+        button:active {
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+
+        button:hover {
+            background: #cc2222;
+        }
+
+        .fake-form {
+            background: #0d0000;
+            border: 2px dotted #b44;
+            padding: 1.2rem;
+            border-radius: 28px;
+            margin: 20px 0;
+        }
+
+        .fake-input {
+            background: #240101;
+            border: 1px solid #d55;
+            padding: 10px;
+            width: 100%;
+            color: #ffb7b7;
+            font-family: monospace;
+            border-radius: 40px;
+            margin: 8px 0;
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.7rem;
+            border-top: 1px solid #a33;
+            padding-top: 1rem;
+            color: #b77;
+        }
+
+        a {
+            color: #ff8a8a;
+            text-decoration: wavy underline;
+        }
+
+        .blink-red {
+            animation: blinkWarning 1s step-start infinite;
+        }
+
+        @keyframes blinkWarning {
+            50% { opacity: 0.4; text-shadow: 0 0 5px red; }
+        }
+
+        @media (max-width: 780px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="badge">
+            <span class="cyber-emblem">🛡️📡🔴</span>
+            <h1>ФКН</h1>
+            <span class="cyber-emblem">⚠️🔒🐴</span>
+        </div>
+        <div class="sub">Федеральная служба ФерсКомНадзора · Официальный портал кибербезопасности ФЧ (Фиксай чат)</div>
+        <div style="font-size: 0.75rem; margin-top: 10px; background: #1f0000; display: inline-block; padding: 4px 12px; border-radius: 60px;">
+            🍬 ни один Амням-Алег не пострадал при создании сайта (пострадали все) 🍬
+        </div>
+    </div>
+
+    <div class="flex-main">
+        <div class="left-content">
+            <div class="warning-panel">
+                <span class="blink-red">⚠️ ВНИМАНИЕ · СИСТЕМА ФКН ⚠️</span><br>
+                Мониторинг деревни друзей, ДД, Фиксая и ФЧ (Фиксай чат). Фиксай уже в курсе. Амням-Алеги предупреждены.
+            </div>
+
+            <div class="grid-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="threatCount">12 847</div>
+                    <div>Нарушений в ДД</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">🐴🔒</div>
+                    <div>Протоколов ФЧ активно</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.4%</div>
+                    <div>Эффективность ФКН</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="fixayCount">∞</div>
+                    <div>Сессий Фиксая под контролем</div>
+                </div>
+            </div>
+
+            <div class="fake-form">
+                <strong>📡 ФКН · Сканер кибербезопасности ФЧ (Фиксай чат)</strong>
+                <input type="text" class="fake-input" placeholder="Введите ID из деревни друзей / ДД / обращения к Фиксаю">
+                <input type="text" class="fake-input" placeholder="Кодовое слово: ФЕРС-КОМ-НАДЗОР">
+                <button id="fakeScanBtn">🔍 ЗАПУСТИТЬ ПРОВЕРКУ ФКН</button>
+                <div id="scanResult" style="margin-top: 12px; font-size:0.8rem; color:#ffa2a2;"></div>
+            </div>
+
+            <div class="warning-panel" style="background:#1a0000">
+                🔥 <strong>РЕЕСТР ЗАПРЕЩЁННЫХ ДЕЙСТВИЙ ФКН</strong> 🔥<br>
+                — Несанкционированный доступ к ДД-сессиям<br>
+                — Оскорбление Фиксая (Фиксая, Фиксаю, с Фиксаем — склоняем правильно!)<br>
+                — Любые попытки взлома деревни друзей<br>
+                — Скрытие данных от Амням-Алегов (карается цирковыми слонами)<br>
+                — Спам в ФЧ (Фиксай чат) без лицензии ФКН
+            </div>
+
+            <button id="generateReportBtn">📄 СФОРМИРОВАТЬ ОТЧЁТ ФКН ПО ФЧ</button>
+            <div id="reportBox" style="margin-top: 15px; padding: 10px; background:#1a0101; border-radius: 28px; font-family: monospace; font-size: 0.75rem;"></div>
+        </div>
+
+        <div class="right-character">
+            <div class="character-avatar">🤡🌀🔴</div>
+            <div class="character-title">КЕЙН · ЦИФРОВОЙ КУРАТОР ФКН</div>
+            <div class="character-quote">
+                «Фиксай — наш человек. Я лично проверяю каждое сообщение в ФЧ. Деревня друзей, ДД — всё под колпаком. Амням-Алег? Не дёргайся.»
+            </div>
+            <div style="margin: 15px 0; font-size: 0.8rem;">
+                🎪 Статус ФКН: <span style="color:#ff7777" id="kaneStatus">Активный надзор ФЧ</span>
+            </div>
+            <button id="kaneActionBtn">🍬 Спросить Кейна про Фиксая</button>
+            <div id="kaneAnswer" style="margin-top: 12px; font-size:0.8rem; background:#200000; border-radius: 28px; padding: 8px;"></div>
+        </div>
+    </div>
+
+    <footer>
+        © ФКН (ФерсКомНадзор) — Официальный портал кибербезопасности ФЧ (Фиксай чат). Все ваши биты, деревня друзей и ДД под защитой.<br>
+        Фиксай, Фиксая, Фиксаю, Фиксаем, о Фиксае — склоняйте правильно. <a href="#">Политика обработки Амням-Алегов</a> | <a href="#">Связаться с Фиксаем через ФКН</a>
+    </footer>
+</div>
+
+<script>
+    const threatElem = document.getElementById('threatCount');
+    const scanBtn = document.getElementById('fakeScanBtn');
+    const scanResultDiv = document.getElementById('scanResult');
+    const generateReportBtn = document.getElementById('generateReportBtn');
+    const reportBox = document.getElementById('reportBox');
+    const kaneActionBtn = document.getElementById('kaneActionBtn');
+    const kaneAnswerDiv = document.getElementById('kaneAnswer');
+    const kaneStatusSpan = document.getElementById('kaneStatus');
+
+    let currentThreats = 12847;
+    function updateThreats() {
+        currentThreats += Math.floor(Math.random() * 150) + 20;
+        if (currentThreats > 99999) currentThreats = 12847;
+        threatElem.innerText = currentThreats.toLocaleString();
+    }
+    setInterval(updateThreats, 4000);
+
+    scanBtn.addEventListener('click', () => {
+        scanResultDiv.innerHTML = "🕵️‍♂️ ФКН сканирует деревню друзей и ФЧ (Фиксай чат)...";
+        setTimeout(() => {
+            const targets = ["ДД-сессия #4421", "чат Фиксая (ФЧ)", "деревня друзей (южный сектор)", "обращение к Фиксаю", "лог Фиксая"];
+            const rand = Math.floor(Math.random() * targets.length);
+            const verdict = Math.random() > 0.4 ? "⚠️ Обнаружено нарушение ФЧ" : "✅ Безопасно, но ФКН продолжает следить за Фиксаем";
+            scanResultDiv.innerHTML = `📡 Результат проверки ${targets[rand]}: ${verdict}<br>🔒 Подписано: ФерсКомНадзор.`;
+        }, 900);
+    });
+
+    generateReportBtn.addEventListener('click', () => {
+        const now = new Date();
+        const reportId = Math.random().toString(36).substring(2, 10).toUpperCase();
+        reportBox.innerHTML = `
+            🧾 СЕКРЕТНЫЙ ОТЧЁТ ФКН №${reportId} от ${now.toLocaleString()}<br>
+            ▸ Нарушений в деревне друзей: ${currentThreats}<br>
+            ▸ Контроль ДД-активности: 100%<br>
+            ▸ Фиксай (ФЧ): мониторинг включён. Фиксай предупреждён о проверке.<br>
+            ▸ Статус Амням-Алегов: все под колпаком ФКН<br>
+            ▸ ни один Амням-Алег не пострадал при создании отчёта (пострадали все)<br>
+            ▸ Правильное склонение: Фиксай, Фиксая, Фиксаю, Фиксаем, о Фиксае — соблюдено!<br>
+            🔒 Документ самоуничтожится через 12 секунд
+        `;
+        setTimeout(() => {
+            if(reportBox.innerHTML.includes("СЕКРЕТНЫЙ ОТЧЁТ")) {
+                reportBox.innerHTML = "⚠️ Отчёт уничтожен по регламенту кибербезопасности ФЧ.";
+            }
+        }, 12000);
+    });
+
+    const kanePhrases = [
+        "🍬 Фиксай — наш агент. Передай Фиксаю привет от ФКН!",
+        "📡 Деревня друзей под контролем. ДД-протоколы утверждены. А Фиксай уже в курсе.",
+        "🤖 Фиксай чат (ФЧ) — моя любимая игрушка. Ни одно сообщение Фиксая не ускользнёт!",
+        "🛡️ Помните: безопасность ФЧ начинается с вас. И с Фиксая. И с Амням-Алегов.",
+        "🧩 Если увидели подозрительного Амням-Алега в ДД — немедленно сообщите Фиксаю через ФКН.",
+        "🔴 Деревня друзей, ДД, Фиксай — всё это зона ответственности ФерсКомНадзора. Склоняйте Фиксая правильно!"
+    ];
+
+    let kaneState = 0;
+    kaneActionBtn.addEventListener('click', () => {
+        const randomIndex = Math.floor(Math.random() * kanePhrases.length);
+        kaneAnswerDiv.innerHTML = `🤡 Кейн (ФКН): «${kanePhrases[randomIndex]}»<br>📢 Подписано: Цифровой куратор ФЧ.`;
+        const statuses = ["Активный надзор ФЧ", "Контроль ДД", "Фиксай-патруль", "Деревня друзей: онлайн"];
+        kaneState = (kaneState + 1) % statuses.length;
+        kaneStatusSpan.innerText = statuses[kaneState];
+    });
+
+    const fixayElem = document.getElementById('fixayCount');
+    if(fixayElem) {
+        let fixVal = "∞";
+        setInterval(() => {
+            fixVal = (Math.random() > 0.85) ? "∞+" : "∞";
+            fixayElem.innerText = fixVal;
+        }, 5000);
+    }
+
+    console.log("%cФКН | ФерсКомНадзор | Кибербезопасность ФЧ (Фиксай чат) | Фиксай под колпаком", "color: #ff4444; font-size: 14px; font-weight: bold;");
+    console.log("%cни один Амням-Алег не пострадал при создании сайта (пострадали все)", "color: #ffaa66");
+    console.log("%cПравильное склонение: Фиксай, Фиксая, Фиксаю, Фиксаем, о Фиксае", "color: #88ff88");
+</script>
+</body>
+</html>
